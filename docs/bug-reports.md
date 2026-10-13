@@ -52,3 +52,13 @@ Each confirmed bug should include:
 ## 5. Current Conclusion
 
 The current findings primarily concern the automation environment and test execution. No confirmed application defect is claimed in this report.
+
+## Framework Improvements
+
+### IMP-001 — Automatic UI Failure Screenshots
+
+- **Description:** Added a JUnit 5 extension to capture screenshots when UI test methods throw exceptions.
+- **Implementation:** `ScreenshotOnFailureExtension.java`, registered through `BaseUiTest`.
+- **Output:** PNG screenshots are saved under `target/screenshots/`.
+- **Purpose:** Improve debugging by preserving visual evidence of failed UI test executions.
+- **Limitation:** Screenshot capture requires an active WebDriver session. Failures outside the handled test-method execution may not produce screenshots.

@@ -6,5 +6,6 @@ com\naufal\qa\pages\CheckoutPage.class
 com\naufal\qa\pages\LoginPage.class
 com\naufal\qa\ui\InventoryTest.class
 com\naufal\qa\ui\CartTest.class
+com\naufal\qa\ui\ScreenshotOnFailureExtension.class
 com\naufal\qa\ui\CheckoutTest.class
 com\naufal\qa\ui\BaseUiTest.class

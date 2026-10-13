@@ -40,6 +40,11 @@ The goal is to practice maintainable automated testing, validate expected applic
 * Headless Chrome configuration for CI
 * Test report artifacts uploaded after workflow execution
 
+### Report Automation
+- **Automatic Failure Screenshots:** Captures screenshots when UI test methods fail, helping identify interface and automation issues during debugging.
+- **Screenshot Storage:** Saves captured screenshots as PNG files under `target/screenshots/`.
+- **CI Screenshot Artifacts:** GitHub Actions can upload failure screenshots as workflow artifacts when the screenshot upload step is configured.
+
 ## Tech Stack
 
 | Technology         | Purpose                                  |
@@ -81,7 +86,8 @@ java-qa-automation-framework/
 │                   ├── LoginTest.java
 │                   ├── InventoryTest.java
 │                   ├── CartTest.java
-│                   └── CheckoutTest.java
+│                   ├── CheckoutTest.java
+│                   └── ScreenshotOnFailureExtension.java
 ├── pom.xml
 └── README.md
 ```
@@ -123,6 +129,20 @@ mvn "-Dtest=LoginTest,InventoryTest,CartTest,CheckoutTest" test
 ```bash
 mvn "-Dtest=PostApiTest" test
 ```
+
+### 5. Failure Screenshots
+
+When a UI test method fails, the framework attempts to capture a screenshot before browser teardown.
+
+Screenshots are saved to:
+
+`target/screenshots/`
+
+Each screenshot filename includes the test method name and a timestamp.
+
+The original test failure is preserved even if screenshot capture fails. Screenshots are generated only when a failure is handled by the extension and a browser session is available.
+
+If the GitHub Actions screenshot artifact step is configured, captured screenshots can also be downloaded from the workflow run's **Artifacts** section.
 
 ## Test Coverage
 

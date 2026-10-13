@@ -162,6 +162,21 @@
 
 * **Note:** JSONPlaceholder simulates resource creation. A successful POST response does not imply permanent data persistence.
 
+## Framework Feature Verification
+
+### TC-FW-001 — Capture Screenshot on UI Test Failure
+
+- **Objective:** Verify that a screenshot is captured when a UI test method fails.
+- **Precondition:** The browser session is active and the screenshot extension is registered.
+- **Steps:**
+  1. Execute a UI test with a temporary failing assertion.
+  2. Allow the test to finish its failure handling.
+  3. Check the `target/screenshots/` directory.
+  4. Verify that a PNG screenshot corresponding to the test method exists.
+  5. Verify that JUnit still reports the test as failed.
+- **Expected Result:** A screenshot is saved, and the original test failure is preserved.
+- **Execution Status:** Pass — update only after verification.
+
 ## Execution Notes
 
 Test cases document the intended behavior of the application. Record the actual execution status only after running the corresponding automated tests. If a test fails, investigate whether the cause is an application defect, an automation defect, or an environment issue.

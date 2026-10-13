@@ -3,12 +3,13 @@ package com.naufal.qa.ui;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.AfterEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+@ExtendWith(ScreenshotOnFailureExtension.class)
 public abstract class BaseUiTest {
 
     protected WebDriver driver;

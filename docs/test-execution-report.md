@@ -42,6 +42,16 @@ Pass rate calculation:
 
 `Pass Rate = Passed Tests / Tests Run × 100%`
 
+| Feature | Verification | Result |
+|---|---|---|
+| Automatic failure screenshot | Temporarily fail a UI test and verify screenshot output | Pass |
+| Screenshot file format | Verify the generated file is a PNG | Pass |
+| Original test failure preserved | Verify the test remains failed after screenshot handling | Pass |
+
+**Screenshot output directory:** `target/screenshots/`
+
+**Note:** Framework feature verification is reported separately from the application's UI and API test counts.
+
 ## 4. Execution Command
 
 Run the full test suite from the project root:

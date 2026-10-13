@@ -46,3 +46,12 @@ jobs:
           path: target/surefire-reports/
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Upload failure screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-screenshots
+          path: target/screenshots/
+          if-no-files-found: ignore
+          retention-days: 14
